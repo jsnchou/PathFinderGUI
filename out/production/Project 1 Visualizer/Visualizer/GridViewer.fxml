@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="975.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Visualizer.Controller">
+   <children>
+      <GridPane id="gridPane" fx:id="gridPane">
+            </GridPane>
+
+
+      <Separator halignment="RIGHT" layoutX="1282.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="975.0" prefWidth="15.0" />
+
+
+      <Button id="runAStar" fx:id="runAStar" layoutX="1307.0" layoutY="460.0" mnemonicParsing="false" onAction="#runAStarClicked" prefHeight="53.0" prefWidth="186.0" text="A*">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+
+
+      <Button id="generateNewGridButton" fx:id="generateNewGridButton" layoutX="1345.0" layoutY="53.0" mnemonicParsing="false" onAction="#generateNewGridButtonClicked" prefHeight="53.0" prefWidth="144.0" text="Generate New Grid">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+
+
+      <Button id="loadSavedGridButton" fx:id="loadSavedGridButton" layoutX="1617.0" layoutY="53.0" mnemonicParsing="false" onAction="#loadSavedGridButtonClicked" prefHeight="53.0" prefWidth="144.0" text="Load Saved Grid">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+
+
+      <Label alignment="CENTER" layoutX="1535.0" layoutY="67.0" prefHeight="26.0" prefWidth="39.0" text="OR" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+
+      <Button id="saveNewGridButton" fx:id="saveNewGridButton" layoutX="1345.0" layoutY="174.0" mnemonicParsing="false" onAction="#saveNewGridButtonClicked" prefHeight="53.0" prefWidth="144.0" text="Save New Grid">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+
+
+      <Separator layoutX="1293.0" layoutY="120.0" prefHeight="12.0" prefWidth="503.0" />
+
+
+      <TextField id="saveNewGridName" fx:id="saveNewGridName" layoutX="1565.0" layoutY="192.0" prefHeight="33.0" prefWidth="200.0" text="NEW_GRID.txt">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+
+
+      <Label alignment="CENTER" layoutX="1556.0" layoutY="161.0" prefHeight="26.0" prefWidth="193.0" text="New Grid Name: (.txt)">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+
+
+      <Separator layoutX="1297.0" layoutY="241.0" prefHeight="12.0" prefWidth="503.0" />
+
+
+
+      <RadioButton id="ManhattanDistanceRadioButton" fx:id="ManhattanDistanceRadioButton" layoutX="1300.0" layoutY="289.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" selected="true" text="Manhattan Distance">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="HeuristicGroup" />
+         </toggleGroup>
+      </RadioButton>
+
+
+
+      <Label layoutX="1303.0" layoutY="253.0" prefHeight="29.0" prefWidth="193.0" text="Choose Heuristics:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+
+
+
+      <RadioButton id="EuclideanDistanceRadioButton" fx:id="EuclideanDistanceRadioButton" layoutX="1300.0" layoutY="329.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="Euclidean Distance" toggleGroup="$HeuristicGroup">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+
+
+
+      <RadioButton id="ManhattanDistanceByFourRadioButton" fx:id="ManhattanDistanceByFourRadioButton" layoutX="1535.0" layoutY="289.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="193.0" text="Manhattan Distance &#10;By Four" toggleGroup="$HeuristicGroup">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+
+
+
+      <RadioButton id="EuclideanDistanceByFourRadioButton" fx:id="EuclideanDistanceByFourRadioButton" layoutX="1535.0" layoutY="355.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="193.0" text="Euclidean Distance &#10;By Four" toggleGroup="$HeuristicGroup">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+
+
+
+      <RadioButton id="ChebyshevDistanceRadioButton" fx:id="ChebyshevDistanceRadioButton" layoutX="1300.0" layoutY="364.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="Chebyshev Distance" toggleGroup="$HeuristicGroup">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+
+
+      <Separator layoutX="1293.0" layoutY="408.0" prefHeight="12.0" prefWidth="503.0" />
+
+
+      <Label layoutX="1303.0" layoutY="132.0" prefHeight="29.0" prefWidth="114.0" text="Save Grid:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+
+
+
+      <Label alignment="CENTER" layoutX="1300.0" layoutY="14.0" prefHeight="29.0" prefWidth="136.0" text="Choose Grid:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+
+
+
+      <Label layoutX="1303.0" layoutY="420.0" prefHeight="29.0" prefWidth="228.0" text="Run Search Algorithm:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+
+
+      <Button id="runWeightedAStar" fx:id="runWeightedAStar" layoutX="1307.0" layoutY="528.0" mnemonicParsing="false" onAction="#runWeightedAStarButtonClicked" prefHeight="53.0" prefWidth="186.0" text="Weighted A*">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+
+
+      <Button id="runUniformCostSearch" fx:id="runUniformCostSearch" layoutX="1572.0" layoutY="461.0" mnemonicParsing="false" onAction="#runUniformCostSearchButtonClicked" prefHeight="53.0" prefWidth="186.0" text="Uniform Cost Search">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+
+
+      <Button id="runSequentialHeuristicSearch" fx:id="runSequentialHeuristicSearch" layoutX="1307.0" layoutY="613.0" mnemonicParsing="false" onAction="#runSequentialHeuristicSearchButtonClicked" prefHeight="63.0" prefWidth="186.0" text="Sequential Heuristic &#10;Search" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+
+
+      <Label alignment="CENTER" layoutX="1510.0" layoutY="542.0" prefHeight="26.0" prefWidth="65.0" text="Weight:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+
+      <TextField id="weightedAStarWeight" fx:id="weightedAStarWeight" layoutX="1587.0" layoutY="538.0" prefHeight="35.0" prefWidth="91.0" text="1.5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+
+
+      <Label alignment="CENTER" layoutX="1510.0" layoutY="610.0" prefHeight="26.0" prefWidth="77.0" text="Weight 1:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+
+      <Label alignment="CENTER" layoutX="1510.0" layoutY="663.0" prefHeight="26.0" prefWidth="77.0" text="Weight 2:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+
+      <TextField id="sequentialSearchWeight1" fx:id="sequentialSearchWeight1" layoutX="1587.0" layoutY="606.0" prefHeight="12.0" prefWidth="91.0" text="1.5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+
+
+      <TextField id="sequentialSearchWeight2" fx:id="sequentialSearchWeight2" layoutX="1587.0" layoutY="659.0" prefHeight="35.0" prefWidth="91.0" text="1.5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+
+
+      <Separator layoutX="1293.0" layoutY="707.0" prefHeight="12.0" prefWidth="503.0" />
+
+
+      <TextArea id="TextOutput" fx:id="TextOutput" editable="false" layoutX="1300.0" layoutY="724.0" prefHeight="239.0" prefWidth="493.0" text="WELCOME TO PATH FINDER VISUALIZER !&#10;How to Read Grid:&#10;Green&#9;&#9;=  &#9;Easy-To-Traverse Cell&#10;Beige&#9;&#9;= &#9;Hard-To-Traverse Cell&#10;Black&#9;&#9;=&#9;Blocked Cell&#10;Light Blue&#9;=&#9;Easy-To-Traverse River&#10;Dark Blue&#9;=&#9;Hard-To-Traverse River&#10;Red&#9;&#9;=&#9;Start/End Cell OR Path Found&#10;Orange&#9;&#9;=&#9;Visited Cells&#10;">
+         <font>
+            <Font size="18.0" />
+         </font></TextArea>
+
+
+      <Separator layoutX="1291.0" layoutY="588.0" prefHeight="12.0" prefWidth="503.0" />
+
+
+      <Separator layoutX="1291.0" layoutY="514.0" prefHeight="12.0" prefWidth="503.0" />
+
+
+      <Separator halignment="RIGHT" layoutX="1528.0" layoutY="456.0" orientation="VERTICAL" prefHeight="63.0" prefWidth="15.0" />
+
+
+   </children>
+</Pane>
